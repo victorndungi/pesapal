@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/get-pesapal-token', methods=['POST'])
 def get_pesapaltoken():
-    token_url = f"{base_url}/api/Auth/RequestToken"
+    token_url = "https://cybqa.pesapal.com/pesapalv3/api/Auth/RequestToken"
     authtokens={
         "consumer_key" : str(consumer_key),
         "consumer_secrets": str(consumer_secret)
@@ -27,7 +27,7 @@ def get_pesapaltoken():
     
 @app.route('/registerIPNURL', methods=['POST'])
 def register_ipn():
-    ipn_url = f"{base_url}/api/URLSetup/RegisterIPN"
+    ipn_url = "https://cybqa.pesapal.com/pesapalv3/api/URLSetup/RegisterIPN"
 
     data = request.get_json()
     session_token = data.get('sessionToken')
